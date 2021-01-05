@@ -11,13 +11,41 @@
     <script>
       var ncmb = new NCMB(appKey,cliKey);
       var TestClass = ncmb.DataStore("CloudPrograming_Report");
-      var testRecord = new TestClass();
-      testRecord.set("message2", "hello, world");
-      testRecord.save();
     </script>
 </head>
 <body>
-	<br />
-    This is a template for Monaca app.
+  <h2>メンバー表</h2>
+  <br>
+  <div>
+    <label for="name">name:</label>
+    <input id="name" type="text" placeholder="name">
+    <div id="button">
+      <button class="btn" onclick="enterName()">EnterName</button>
+    </div>
+  </div>
+  <div>
+    <label for="sex">sex:</label>
+    <input id="sex" type="text" placeholder="sex">
+    <div id="button">
+      <button class="btn" onclick="enterSex()">EnterSex</button>
+    </div>
+  </div>
+  <div>
+    <label for="age">age:</label>
+    <input id="age" type="number" placeholder="age">
+    <div id="button">
+      <button class="btn" onclick="enterAge()">EnterAge</button>
+    </div>
+  </div>
+  <div id="button">
+    <button class="btn" onclick="fetchAll()">Fetch All</button>
+  </div>
+  <div id="button">
+    <button class="btn" onclick="delete()">Delete</button>
+  </div>
+  <table>
+    <tr><th>Name</th><th>Sex</th><th>Age</th></tr>
+    <tr><td>Name</td><td>Sex</td><td>Age</td></tr>
+  </table>
 </body>
 </html>

@@ -1,2 +1,46 @@
 /**/
+body {
+  background-color: aqua;
+}
+h2 {
+  background-color: yellow;
+}
 
+label {
+  display: block;
+  float: left;
+  text-align: right;
+  width: 20%;
+}
+
+input {
+  width: 75%;
+}
+
+#button {
+  text-align: center;
+}
+
+.btn {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14pt;
+  height: 4ex;
+  width: 6em;
+  border-radius: 10px;
+  color: white;
+  background-color: blue;
+}
+
+#message {
+  border-style: solid;
+  border-color: grey;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  border: solid;
+}
