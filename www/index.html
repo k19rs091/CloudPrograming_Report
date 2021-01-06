@@ -10,7 +10,73 @@
     <script src="keys.js"></script>
     <script>
       var ncmb = new NCMB(appKey,cliKey);
-      var TestClass = ncmb.DataStore("CloudPrograming_Report");
+      const db = "CloudPrograming_Report";
+      var TesDatatClass = ncmb.DataStore("CloudPrograming_Report");
+
+      $(function() {
+      let TestDataClass = ncmb.DataStore(db);
+      TestDataClass.fetchAll() // 全件取得してみる
+      .then(function(results){
+        
+      })
+    })
+
+    function fetchAll() {
+      let TestDataClass = ncmb.DataStore(db); 
+      TestDataClass.order("Name",false).fetchAll()
+      .then(function(results) {
+        showResults(results);
+      })
+    }
+
+function showResults(results) {
+      // テーブルのヘッダを生成
+      let msg="<table><tr><th>Name</th><th>Sex</th><th>Age</th></tr>";
+      for(let i=0; i<results.length; i++) {
+        // 各データを収めた表の列を生成
+        msg += "<tr>";
+        msg += "<td>" + results[i].Name + "</td>";
+        msg += "<td>" + results[i].Sex + "</td>";
+        msg += "<td>" + results[i].Age + "</td>";
+        msg += "</tr>";
+      }
+      // テーブルのテイラを生成
+      msg += "</table>";
+      $("#message").html(msg);
+    }
+
+      function enterName() {
+        let name = $("#name").val();
+        let TesDatatClass = ncmb.DataStore(db);
+        TesDatatClass
+        .equalTo("name", name)
+        .fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+      }
+
+      function enterSex() {
+        let name = $("#sex").val();
+        let TesDatatClass = ncmb.DataStore(db);
+        TesDatatClass
+        .equalTo("sex", sex)
+        .fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+      }
+
+      function enterAge() {
+        let name = $("#age").val();
+        let TesDatatClass = ncmb.DataStore(db);
+        TesDatatClass
+        .equalTo("age", age)
+        .fetchAll()
+        .then(function(results) {
+          showResults(results);
+        })
+      }
     </script>
 </head>
 <body>
@@ -40,12 +106,9 @@
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
   </div>
-  <div id="button">
-    <button class="btn" onclick="delete()">Delete</button>
-  </div>
   <table>
     <tr><th>Name</th><th>Sex</th><th>Age</th></tr>
-    <tr><td>Name</td><td>Sex</td><td>Age</td></tr>
+    <tr><td></td><td></td><td></td></tr>
   </table>
 </body>
 </html>
